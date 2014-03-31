@@ -1,4 +1,5 @@
 require 'sidekiq'
+require 'sidekiq/util'
 require 'sidekiq/actor'
 
 module Sidekiq
@@ -7,8 +8,8 @@ module Sidekiq
   # from the queues.  It gets the message and hands it to the Manager
   # to assign to a ready Processor.
   class Fetcher
-    include ::Sidekiq::Util
-    include ::Sidekiq::Actor
+    include Util
+    include Actor
 
     TIMEOUT = 1
 
